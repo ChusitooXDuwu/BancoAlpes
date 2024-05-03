@@ -27,7 +27,7 @@ urlpatterns = [
     path('', views.home),
     path('cliente/', include('cliente.urls')),
     path('documents/', include('documents.urls')),
-    
+    path('health/', views.health_check, name='health'),
 
     #path('document/', pdf_view, name='pdf_view'),    
 ]

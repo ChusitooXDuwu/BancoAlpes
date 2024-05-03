@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.http import JsonResponse
 
 def home(request):
     return HttpResponse("Hello world! Django views")
@@ -18,6 +19,7 @@ def pdf_view(request, *args, **kwargs):
     except FileNotFoundError:
         return HttpResponse("The file was not found")
 
-
+def health_check(request):
+    return JsonResponse({'message': 'OK'}, status=200)
 
 #def fucntion that callls  pdf from folder docClientes
