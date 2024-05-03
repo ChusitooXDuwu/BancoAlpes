@@ -1,3 +1,4 @@
+resources:
 - type: compute.v1.instance
   name: instance-c
   properties:
