@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': 'banco_db',
         'USER': 'chu',
         'PASSWORD': 'chu',
-        'HOST': '10.128.0.3',
+        'HOST': '10.128.0.52',
         'PORT': '',
     }
 }
