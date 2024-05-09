@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cliente',
-    'documents'
+    'documents',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,26 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static', 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Configuración de autenticación
+LOGIN_URL = "/login/auth0"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "https://dev-7ozdnqo6jnj1t00s.us.auth0.com/v2/logout?returnTo=http%3A%2F%2F35.184.138.174:8080"
+SOCIAL_AUTH_TRAILING_SLASH = False  # Eliminar la barra final de las rutas
+SOCIAL_AUTH_AUTH0_DOMAIN = 'dev-7ozdnqo6jnj1t00s.us.auth0.com'
+SOCIAL_AUTH_AUTH0_KEY = 'q9F3TDPUOIYjuB4xMqywSHYYx5oUWZz3'
+SOCIAL_AUTH_AUTH0_SECRET = 'NSrEdzQs3KAXh3HYrNIlG1wk92efLHLlw8t9_ddxIoJsxmmrYzsTTGHDWuRzliJX'
+SOCIAL_AUTH_AUTH0_SCOPE = [
+    'openid',
+    'profile',
+    'email',
+    'role',
+]
+
+# Backend de autenticación
+AUTHENTICATION_BACKENDS = {
+    'monitoring.auth0backend.Auth0',
+    'django.contrib.auth.backends.ModelBackend',
+}
+

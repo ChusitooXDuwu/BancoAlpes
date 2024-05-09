@@ -11,24 +11,29 @@ from django.urls import reverse
 from .logic.logic_documents import create_document
 from .logic.logic_documents import delete_all_documents
 from django.contrib import messages
+from BancoAlpes.auth0backend import getRole
 
 @csrf_exempt
 def documents_view(request):
-    if request.method == 'GET':
-        id = request.GET.get("id", None)
-        if id:
-            documents_dto = vl.get_document(id)
+    role = getRole(request)
+    if role == "Administrador":
+        if request.method == 'GET':
+            id = request.GET.get("id", None)
+            if id:
+                documents_dto = vl.get_document(id)
+                documents = serializers.serialize('json', [documents_dto,])
+                return HttpResponse(documents, 'application/json')
+            else:
+                documents_dto = vl.get_documents()
+                documents = serializers.serialize('json', documents_dto)
+                return HttpResponse(documents, 'application/json')
+
+        if request.method == 'POST':
+            documents_dto = vl.create_documents(json.loads(request.body))
             documents = serializers.serialize('json', [documents_dto,])
             return HttpResponse(documents, 'application/json')
-        else:
-            documents_dto = vl.get_documents()
-            documents = serializers.serialize('json', documents_dto)
-            return HttpResponse(documents, 'application/json')
-
-    if request.method == 'POST':
-        documents_dto = vl.create_documents(json.loads(request.body))
-        documents = serializers.serialize('json', [documents_dto,])
-        return HttpResponse(documents, 'application/json')
+    else:
+        return HttpResponse("Unauthorized User")
 
 @csrf_exempt
 def document_view(request, pk):
