@@ -153,7 +153,7 @@ SOCIAL_AUTH_AUTH0_SCOPE = [
 
 # Backend de autenticación
 AUTHENTICATION_BACKENDS = {
-    'monitoring.auth0backend.Auth0',
+    'BancoAlpes.auth0backend.Auth0',
     'django.contrib.auth.backends.ModelBackend',
 }
 
