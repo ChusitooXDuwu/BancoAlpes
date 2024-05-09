@@ -24,7 +24,6 @@ from . import views
 from documents.views import pdf_view
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home),
     path('', views.index),
     path('cliente/', include('cliente.urls')),
     path('documents/', include('documents.urls')),
