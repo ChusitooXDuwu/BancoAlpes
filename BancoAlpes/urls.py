@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from django.conf.urls import url
+#from django.conf.urls import url
 from django.conf import settings
 from django.views.static import serve
 from . import views
@@ -36,7 +36,7 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += [
-        url(r'^docsClientes/(?P<path>.*)$', serve, {
+        path(r'^docsClientes/(?P<path>.*)$', serve, {
             'document_root': settings.DOC_ROOT,
         }),
         path('health-check/', views.healthCheck),
