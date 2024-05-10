@@ -159,11 +159,6 @@ USE_X_FORWARDED_HOST = True
 # Configurar el encabezado y valor esperado para determinar si la solicitud es segura (HTTP)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
 
-# Configuraciones adicionales cuando no se usa HTTPS
-SECURE_SSL_REDIRECT = False
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = False
-
 
 # Backend de autenticación
 AUTHENTICATION_BACKENDS = {
