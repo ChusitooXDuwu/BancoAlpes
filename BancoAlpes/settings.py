@@ -139,7 +139,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Configuración de autenticación
 LOGIN_URL = "/login/auth0"
 LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "https://dev-7ozdnqo6jnj1t00s.us.auth0.com/v2/logout?returnTo=http%3A%2F%2F35.184.138.174:8080"
+LOGOUT_REDIRECT_URL = "/"
 SOCIAL_AUTH_TRAILING_SLASH = False  # Eliminar la barra final de las rutas
 SOCIAL_AUTH_AUTH0_DOMAIN = 'dev-7ozdnqo6jnj1t00s.us.auth0.com'
 SOCIAL_AUTH_AUTH0_KEY = 'q9F3TDPUOIYjuB4xMqywSHYYx5oUWZz3'
