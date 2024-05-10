@@ -8,10 +8,14 @@ class XForwardedPortMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        # Establece el esquema de la solicitud a HTTP
-        request.scheme = 'http'
+        # Modificar el protocolo a 'http' usando la cabecera 'X-Forwarded-Proto'
+        request.META['HTTP_X_FORWARDED_PROTO'] = 'http'
+        
+        # Ajustar el puerto si viene en la cabecera 'X-Forwarded-Port'
         forwarded_port = request.META.get('HTTP_X_FORWARDED_PORT')
         if forwarded_port:
             host = request.get_host().split(':')[0]
             request.META['HTTP_HOST'] = f'{host}:{forwarded_port}'
-        return self.get_response(request)
+        response = self.get_response(request)
+        return response
+
