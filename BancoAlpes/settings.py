@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'cliente',
     'documents',
     'social_django',
+    'django_cryptography',
 ]
 
 MIDDLEWARE = [
@@ -140,7 +141,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 USE_X_FORWARDED_HOST = False
 #now with port 8000
-ALLOWED_HOSTS = ['34.69.216.184', '35.184.138.174','34.136.195.32', '34.136.195.32', '10.128.0.53',  '10.128.0.54', '10.128.0.55',  '10.128.0.51', '10.128.0.52']
 
 
 
