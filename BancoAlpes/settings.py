@@ -138,7 +138,7 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static', 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_HOST = False
 #now with port 8000
 
 
