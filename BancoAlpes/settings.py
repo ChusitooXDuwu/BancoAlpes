@@ -136,10 +136,6 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static', 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-USE_X_FORWARDED_HOST = True
-
-# Configurar el encabezado y valor esperado para determinar si la solicitud es segura (HTTP)
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
 
 # Configuración de autenticación
 LOGIN_URL = "/login/auth0"
