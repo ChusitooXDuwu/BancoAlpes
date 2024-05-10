@@ -157,12 +157,12 @@ SOCIAL_AUTH_AUTH0_SCOPE = [
 USE_X_FORWARDED_HOST = True
 
 # Configurar el encabezado y valor esperado para determinar si la solicitud es segura (HTTP)
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Configuraciones adicionales cuando no se usa HTTPS
-SECURE_SSL_REDIRECT = False
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = False
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 
 # Backend de autenticación
