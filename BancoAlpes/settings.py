@@ -149,7 +149,7 @@ SOCIAL_AUTH_TRAILING_SLASH = False  # Eliminar la barra final de las rutas
 SOCIAL_AUTH_AUTH0_DOMAIN = 'dev-7ozdnqo6jnj1t00s.us.auth0.com'
 SOCIAL_AUTH_AUTH0_KEY = 'q9F3TDPUOIYjuB4xMqywSHYYx5oUWZz3'
 SOCIAL_AUTH_AUTH0_SECRET = 'NSrEdzQs3KAXh3HYrNIlG1wk92efLHLlw8t9_ddxIoJsxmmrYzsTTGHDWuRzliJX'
-SOCIAL_AUTH_AUTH0_REDIRECT_URL = 'http://34.69.216.184:8000/complete/auth0'
+SOCIAL_AUTH_AUTH0_REDIRECT_URL = 'https://dev-7ozdnqo6jnj1t00s.us.auth0.com/authorize?client_id=q9F3TDPUOIYjuB4xMqywSHYYx5oUWZz3&redirect_uri=http%3A%2F%2F34.69.216.184%3A8000%2Fcomplete%2Fauth0%3Fredirect_state%3DXtGsPwEc3amzTcMz3a0rz4Qsp0MIB1Zg&state=XtGsPwEc3amzTcMz3a0rz4Qsp0MIB1Zg&response_type=code&scope=openid+profile+email+role'
 SOCIAL_AUTH_AUTH0_SCOPE = [
     'openid',
     'profile',
