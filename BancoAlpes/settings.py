@@ -140,6 +140,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 USE_X_FORWARDED_HOST = False
 #now with port 8000
+ALLOWED_HOSTS = ['34.69.216.184', '35.184.138.174','34.136.195.32', '34.136.195.32']
 
 
 

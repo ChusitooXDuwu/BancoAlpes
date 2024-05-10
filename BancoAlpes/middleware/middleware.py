@@ -2,15 +2,16 @@
 
 from django.conf import settings
 
-class UseForwardedPortMiddleware:
+# middlewares.py
+class XForwardedPortMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
 
     def __call__(self, request):
-        # Extrae el puerto de la cabecera X-Forwarded-Port
+        # Establece el esquema de la solicitud a HTTP
+        request.scheme = 'http'
         forwarded_port = request.META.get('HTTP_X_FORWARDED_PORT')
         if forwarded_port:
-            # Añade el puerto al host actual en la request
-            request.META['HTTP_HOST'] = f"{request.get_host().split(':')[0]}:{forwarded_port}"
-        response = self.get_response(request)
-        return response
+            host = request.get_host().split(':')[0]
+            request.META['HTTP_HOST'] = f'{host}:{forwarded_port}'
+        return self.get_response(request)
