@@ -1,11 +1,12 @@
 from django.db import models
+from django_cryptography.fields import encrypt
 
 
 class Cliente(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
-    cedula = models.CharField(max_length=10)
+    cedula = encrypt(models.CharField(max_length=10))
     email = models.EmailField()
     telefono = models.CharField(max_length=10)
     direccion = models.CharField(max_length=100)
