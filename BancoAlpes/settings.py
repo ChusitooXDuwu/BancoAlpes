@@ -53,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'BancoAlpes.middleware.UseForwardedPortMiddleware',
+
 ]
 
 ROOT_URLCONF = 'BancoAlpes.urls'
@@ -136,7 +138,7 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static', 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-#USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_HOST = True
 #now with port 8000
 
 
