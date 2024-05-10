@@ -136,6 +136,11 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static', 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+USE_X_FORWARDED_HOST = True
+
+# Configurar el encabezado y valor esperado para determinar si la solicitud es segura (HTTP)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
+
 # Configuración de autenticación
 LOGIN_URL = "/login/auth0"
 LOGIN_REDIRECT_URL = "/"
@@ -144,6 +149,7 @@ SOCIAL_AUTH_TRAILING_SLASH = False  # Eliminar la barra final de las rutas
 SOCIAL_AUTH_AUTH0_DOMAIN = 'dev-7ozdnqo6jnj1t00s.us.auth0.com'
 SOCIAL_AUTH_AUTH0_KEY = 'q9F3TDPUOIYjuB4xMqywSHYYx5oUWZz3'
 SOCIAL_AUTH_AUTH0_SECRET = 'NSrEdzQs3KAXh3HYrNIlG1wk92efLHLlw8t9_ddxIoJsxmmrYzsTTGHDWuRzliJX'
+SOCIAL_AUTH_AUTH0_REDIRECT_URL = 'http://34.69.216.184:8000/complete/auth0'
 SOCIAL_AUTH_AUTH0_SCOPE = [
     'openid',
     'profile',
@@ -154,10 +160,7 @@ SOCIAL_AUTH_AUTH0_SCOPE = [
 # settings.py
 
 # Usar el encabezado X-Forwarded-Host para determinar el host original
-USE_X_FORWARDED_HOST = True
 
-# Configurar el encabezado y valor esperado para determinar si la solicitud es segura (HTTP)
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
 
 
 # Backend de autenticación
