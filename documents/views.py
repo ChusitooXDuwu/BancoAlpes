@@ -95,12 +95,17 @@ def documents_deleteAll(request):
     
 @csrf_exempt
 def document_delete(request, pk):
-    if request.method == 'DELETE':
-        print('deleting document')
-        delete_document(pk)
-        return HttpResponse("Document deleted", 'application/json')
+    role = getRole(request)
+    if role == "Administrador":
+        if request.method == 'DELETE':
+            print('deleting document')
+            delete_document(pk)
+            return HttpResponse("Document deleted", 'application/json')
+        else:
+            return HttpResponse("Method not allowed", 'application/json')
     else:
-        return HttpResponse("Method not allowed", 'application/json')
+        return HttpResponse("Unauthorized User")
+ 
     
 @csrf_exempt
 def docCreate(request):
