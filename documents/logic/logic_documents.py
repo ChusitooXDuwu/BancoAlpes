@@ -20,6 +20,12 @@ def delete_all_documents():
     Documento.objects.all().delete()
     return ("wiiiii eliminadoooos")
 
+
+def delete_document(document_pk):
+    document = Documento.objects.get(pk=document_pk)
+    document.delete()
+    return ("wiiiii eliminadoooos")
+
 def create_doc(data):
     print(data)
     document = Documento(
