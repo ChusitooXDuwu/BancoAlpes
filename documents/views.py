@@ -87,8 +87,8 @@ def documents_deleteAll(request):
             print('deleting all documents')
             delete_all_documents()
             return HttpResponse("All documents deleted", 'application/json')
-        else:
-            return HttpResponse("Method not allowed", 'application/json')
+        #else:
+            #return HttpResponse("Method not allowed", 'application/json')
     else:
         return HttpResponse("Unauthorized User")    
     
