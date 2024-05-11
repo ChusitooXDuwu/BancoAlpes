@@ -12,5 +12,6 @@ urlpatterns = [
     path('<int:pk>', views.document_view, name='documento_view'),
     path('documentcreate/', csrf_exempt(views.document_create), name='documentCreate'),
     path('documentdeleteall/', csrf_exempt(views.documents_deleteAll), name='documentDeleteAll'),
+    path('documentdelete/', csrf_exempt(views.document_delete), name='documentDelete'),
     path('docCreate/', csrf_exempt(views.docCreate), name='docCreate'),
 ]

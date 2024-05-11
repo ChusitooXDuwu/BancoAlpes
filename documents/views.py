@@ -88,6 +88,15 @@ def documents_deleteAll(request):
         return HttpResponse("Method not allowed", 'application/json')
     
 @csrf_exempt
+def document_delete(request, pk):
+    if request.method == 'DELETE':
+        print('deleting document')
+        vl.delete_document(pk)
+        return HttpResponse("Document deleted", 'application/json')
+    else:
+        return HttpResponse("Method not allowed", 'application/json')
+    
+@csrf_exempt
 def docCreate(request):
     if request.method == 'POST':
         print("creating document")
