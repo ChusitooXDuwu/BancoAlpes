@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'BancoAlpes.middleware.middleware.XForwardedPortMiddleware',
-    'BancoAlpes.middleware.COOP.RemoveCOOPHeaderMiddleware'
+    
 
 ]
 
