@@ -10,6 +10,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from .logic.logic_documents import create_document
 from .logic.logic_documents import delete_all_documents
+from .logic.logic_documents import delete_document
 from django.contrib import messages
 from BancoAlpes.auth0backend import getRole
 
@@ -88,13 +89,15 @@ def documents_deleteAll(request):
             return HttpResponse("All documents deleted", 'application/json')
         else:
             return HttpResponse("Method not allowed", 'application/json')
+    else:
+        return HttpResponse("Unauthorized User")    
     
     
 @csrf_exempt
 def document_delete(request, pk):
     if request.method == 'DELETE':
         print('deleting document')
-        vl.delete_document(pk)
+        delete_document(pk)
         return HttpResponse("Document deleted", 'application/json')
     else:
         return HttpResponse("Method not allowed", 'application/json')
