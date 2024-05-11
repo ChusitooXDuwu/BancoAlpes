@@ -83,7 +83,7 @@ def document_create(request):
 def documents_deleteAll(request):
     role = getRole(request)
     if role == "Administrador":
-        if request.method == 'DELETE':
+        if request.method == 'GET':
             print('deleting all documents')
             delete_all_documents()
             return HttpResponse("All documents deleted", 'application/json')
