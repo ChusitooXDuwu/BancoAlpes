@@ -23,7 +23,7 @@ def healthCheck(request):
 #     except FileNotFoundError:
 #         return HttpResponse("The file was not found")
 
-# def health_check(request):
-#     return JsonResponse({'message': 'OK'}, status=200)
+def health_check(request):
+    return JsonResponse({'message': 'OK'}, status=200)
 
 #def fucntion that callls  pdf from folder docClientes
