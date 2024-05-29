@@ -37,8 +37,6 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += [
-        path(r'^docsClientes/(?P<path>.*)$', serve, {
-            'document_root': settings.DOC_ROOT,
-        }),
+        
         path('health-check/', views.healthCheck),
     ]
