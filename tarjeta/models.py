@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Tarjeta(models.Model):
+class tarjeta(models.Model):
     id = models.AutoField(primary_key=True)
     cliente = models.CharField(max_length=100)
     tipo = models.CharField(max_length=100) #si es cedula, recibo, pasaporte, etc
