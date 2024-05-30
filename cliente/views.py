@@ -23,9 +23,9 @@ def clientes_view(request):
         return HttpResponse(cliente, 'application/json')
 
 @csrf_exempt
-def cliente_view(request, pk):
+def cliente_view(request, id):
     if request.method == 'GET':
-        cliente = vl.get_cliente(pk)
+        cliente = vl.get_cliente(id)
         cliente_dto = serializers.serialize('json', cliente)
         return HttpResponse(cliente_dto, 'application/json')
 
