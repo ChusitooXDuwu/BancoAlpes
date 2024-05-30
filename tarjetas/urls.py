@@ -14,4 +14,5 @@ urlpatterns = [
     path('tarjetadeleteall/', csrf_exempt(views.tarjetas_deleteAll), name='tarjetaDeleteAll'),
     path('tarjetadelete/', csrf_exempt(views.tarjeta_delete), name='tarjetaDelete'),
     path('docCreate/', csrf_exempt(views.docCreate), name='docCreate'),
+    path('tarjetas/', csrf_exempt(views.crear_tarjeta), name='crear_tarjeta')
 ]

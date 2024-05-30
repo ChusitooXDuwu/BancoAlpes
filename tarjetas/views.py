@@ -1,8 +1,10 @@
 import os
 
+from tarjetas.models import Tarjeta
+
 from .forms import TarjetaForm
 from .logic import logic_tarjetas as vl
-from django.http import FileResponse, HttpResponse, HttpResponseRedirect
+from django.http import FileResponse, HttpResponse, HttpResponseBadRequest, HttpResponseRedirect, JsonResponse
 from django.core import serializers
 import json
 from django.views.decorators.csrf import csrf_exempt
@@ -13,6 +15,30 @@ from .logic.logic_tarjetas import delete_all_tarjetas
 from .logic.logic_tarjetas import delete_tarjeta
 from django.contrib import messages
 from BancoAlpes.auth0backend import getRole
+import requests
+
+CLIENTE_API_URL = "http://34.170.157.181:8080/clientes/"  # URL correcta
+
+@csrf_exempt
+def crear_tarjeta(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        id_cliente = data.get('id_cliente')
+
+        # Validar que el cliente existe
+        response = requests.get(f"{CLIENTE_API_URL}{id_cliente}")
+        if response.status_code != 200:
+            return HttpResponseBadRequest("Cliente not found")
+
+        tarjeta = Tarjeta(
+            id_cliente=id_cliente,
+            tipo=data.get('tipo'),
+            activa=data.get('activa', True),
+            cupo=data.get('cupo')
+        )
+        tarjeta.save()
+        return JsonResponse({"message": "Tarjeta creada exitosamente"})
+    return JsonResponse({"error": "Invalid request method"}, status=400)
 
 @csrf_exempt
 def tarjetas_view(request):
@@ -58,13 +84,6 @@ def tarjeta_create(request):
         messages.add_message(request, messages.SUCCESS, 'tarjeta create successful')
         print("tarjeta create successful")
         return HttpResponseRedirect(reverse('tarjetaCreate')) 
-        # if form.is_valid():
-        #     create_tarjeta(form)
-        #     messages.add_message(request, messages.SUCCESS, 'tarjeta create successful')
-        #     print("tarjeta create successful")
-        #     return HttpResponseRedirect(reverse('tarjetaCreate')) 
-        # else:
-        #     print(form.errors)
     else:
         form = TarjetaForm()
 
