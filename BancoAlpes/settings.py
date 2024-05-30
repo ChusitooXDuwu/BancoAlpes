@@ -91,7 +91,7 @@ DATABASES = {
         'NAME': 'tc_db',
         'USER': 'wyochu',
         'PASSWORD': 'arquisoft2024',
-        'HOST': '10.128.0.6',
+        'HOST': '10.128.0.7',
         'PORT': '',
     }
 }
