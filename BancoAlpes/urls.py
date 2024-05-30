@@ -21,7 +21,7 @@ from django.views.static import serve
 from . import views
 
 # from the folder tarjetas, import the views file
-from tarjeta.views import pdf_view
+# from tarjeta.views import pdf_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
