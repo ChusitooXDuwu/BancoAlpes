@@ -1,11 +1,11 @@
-from ..models import tarjeta
+from ..models import Tarjeta
 
 def get_tarjeta(tarjeta_pk):
-    tarjeta = tarjeta.objects.get(pk=tarjeta_pk)
+    tarjeta = Tarjeta.objects.get(pk=tarjeta_pk)
     return tarjeta
 
 def get_tarjetas():
-    tarjetas = tarjeta.objects.all()
+    tarjetas = Tarjeta.objects.all()
     return tarjetas
 
 def create_tarjeta(form):
@@ -17,18 +17,19 @@ def create_tarjeta(form):
     return ("wiiiii creadoooooo")
 
 def delete_all_tarjetas():
-    tarjeta.objects.all().delete()
+    
+    Tarjeta.objects.all().delete()
     return ("wiiiii eliminadoooos")
 
 
 def delete_tarjeta(tarjeta_pk):
-    tarjeta = tarjeta.objects.get(pk=tarjeta_pk)
+    tarjeta = Tarjeta.objects.get(pk=tarjeta_pk)
     tarjeta.delete()
     return ("wiiiii eliminadoooos")
 
 def create_doc(data):
     print(data)
-    tarjeta = tarjeta(
+    tarjeta = Tarjeta(
         cliente=data['cliente'],
         tipo=data['tipo'],
         estado=data['estado'],
