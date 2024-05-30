@@ -9,5 +9,6 @@ class Tarjeta(models.Model):
     cupo = models.FloatField()
 
     def __str__(self):
-        return f'{self.cliente} - {self.tipo} - {self.estado}'
-# Create your models here.
+        return f'{self.id} - {self.id_cliente} - {self.tipo} - {self.activa} - {self.cupo}'
+
+  
