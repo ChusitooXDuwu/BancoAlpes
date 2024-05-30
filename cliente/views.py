@@ -48,6 +48,6 @@ def cliente_detail(request, id):
         "direccion": cliente.direccion,
         "fecha_nacimiento": cliente.fecha_nacimiento,
         "fecha_creacion": cliente.fecha_creacion,
-        "estado_documentos": cliente.estado_documentos
+        "estado_docuemntos": cliente.estado_documentos
     }
     return JsonResponse(data)
