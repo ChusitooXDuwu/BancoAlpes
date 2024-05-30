@@ -27,14 +27,3 @@ def delete_tarjeta(tarjeta_pk):
     tarjeta.delete()
     return ("wiiiii eliminadoooos")
 
-def create_doc(data):
-    print(data)
-    tarjeta = Tarjeta(
-        cliente=data['cliente'],
-        tipo=data['tipo'],
-        estado=data['estado'],
-        score_confiabilidad=data['score_confiabilidad'],
-        archivo=data['archivo']
-    )
-    tarjeta.save()
-    return tarjeta

@@ -6,17 +6,17 @@ class TarjetaForm(forms.ModelForm):
     class Meta:
         model = Tarjeta
         fields = [
-            'cliente',
+            'id',
+            'id_cliente', # This is the field that was changed from 'cliente' to 'id_cliente'
             'tipo',
-            'estado',
-            'archivo',
-            'score_confiabilidad',
+            'activa',
+            'cupo',
         ]
-
         labels = {
-            'cliente' : 'Cliente',
+            'id' : 'ID',
+            'id_cliente' : 'ID Cliente',
             'tipo' : 'Tipo',
-            'estado' : 'Estado',
-            'archivo' : 'archivo',
-            'score_confiabilidad' : 'Score_Confiabilidad',
+            'activa' : 'Activa',
+            'cupo' : 'Cupo',
         }
+      
