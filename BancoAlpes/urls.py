@@ -20,25 +20,23 @@ from django.conf import settings
 from django.views.static import serve
 from . import views
 
-# from the folder documents, import the views file
-from documents.views import pdf_view
+# from the folder tarjetas, import the views file
+from tarjeta.views import pdf_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('home/', views.index),
-    path('cliente/', include('cliente.urls')),
-    path('documents/', include('documents.urls')),
+    # path('cliente/', include('cliente.urls')),
+    path('tarjetas/', include('tarjetas.urls')),
     path('health/', views.health_check, name='health'),
     path(r'', include('django.contrib.auth.urls')),
     path(r'', include('social_django.urls')),
 
-    #path('document/', pdf_view, name='pdf_view'),    
+    #path('tarjeta/', pdf_view, name='pdf_view'),    
 ]
 
 if settings.DEBUG:
     urlpatterns += [
-        path(r'^docsClientes/(?P<path>.*)$', serve, {
-            'document_root': settings.DOC_ROOT,
-        }),
+        
         path('health-check/', views.healthCheck),
     ]
