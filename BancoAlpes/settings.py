@@ -88,10 +88,10 @@ WSGI_APPLICATION = 'BancoAlpes.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'monitoring_db',
-        'USER': 'chu',
-        'PASSWORD': 'chu',
-        'HOST': '10.128.0.52',
+        'NAME': 'db_tc',
+        'USER': 'wyochu',
+        'PASSWORD': 'arquisoft2024',
+        'HOST': '10.128.0.6',
         'PORT': '',
     }
 }
