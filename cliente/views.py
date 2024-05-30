@@ -23,11 +23,11 @@ def clientes_view(request):
         return HttpResponse(cliente, 'application/json')
 
 @csrf_exempt
-def cliente_view(request, id):
+def cliente_view(request, pk):
     if request.method == 'GET':
-        cliente = vl.get_cliente(id)
-        cliente_dto = serializers.serialize('json', cliente)
-        return HttpResponse(cliente_dto, 'application/json')
+        cliente_dto = vl.get_cliente(id)
+        cliente = serializers.serialize('json', [cliente_dto,])
+        return HttpResponse(cliente, 'application/json')
 
     if request.method == 'PUT':
         cliente_dto = vl.update_cliente(pk, json.loads(request.body))
