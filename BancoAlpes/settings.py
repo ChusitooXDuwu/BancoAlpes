@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'BancoAlpes.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db_tc',
+        'NAME': 'tc_db',
         'USER': 'wyochu',
         'PASSWORD': 'arquisoft2024',
         'HOST': '10.128.0.6',
