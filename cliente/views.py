@@ -36,8 +36,8 @@ def cliente_view(request, pk):
     
 
 @csrf_exempt
-def cliente_detail(request, id):
-    cliente = vl.get_cliente(id)
+def cliente_detail(request, pk):
+    cliente = vl.get_cliente(pk)
     data = {
         "id": cliente.id,
         "nombre": cliente.nombre,
