@@ -1,9 +1,9 @@
 from django.db import models
-from cliente.models import Cliente
+
 
 class Tarjeta(models.Model):
     id = models.AutoField(primary_key=True)
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, default=None)
+    cliente = models.CharField(max_length=100)
     tipo = models.CharField(max_length=100) #si es cedula, recibo, pasaporte, etc
     #create a checker called gender, so its male , female, gay, or prefer not to say
     
