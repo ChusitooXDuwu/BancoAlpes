@@ -33,3 +33,21 @@ def cliente_view(request, pk):
         cliente_dto = vl.update_cliente(pk, json.loads(request.body))
         cliente = serializers.serialize('json', [cliente_dto,])
         return HttpResponse(cliente, 'application/json')
+    
+
+@csrf_exempt
+def cliente_detail(request, id):
+    cliente = vl.get_cliente(id)
+    data = {
+        "id": cliente.id,
+        "nombre": cliente.nombre,
+        "apellido": cliente.apellido,
+        "cedula": cliente.cedula,
+        "email": cliente.email,
+        "telefono": cliente.telefono,
+        "direccion": cliente.direccion,
+        "fecha_nacimiento": cliente.fecha_nacimiento,
+        "fecha_creacion": cliente.fecha_creacion,
+        "estado_documentos": cliente.estado_documentos
+    }
+    return JsonResponse(data)
