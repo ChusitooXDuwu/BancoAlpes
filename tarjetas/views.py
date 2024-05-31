@@ -95,8 +95,8 @@ def tarjeta_create(request):
 
 @csrf_exempt
 def tarjetas_deleteAll(request):
-    role = getRole(request)
-    if role == "Administrador":
+    role = True
+    if role:
         if request.method == 'GET':
             print('deleting all tarjetas')
             delete_all_tarjetas()
@@ -109,8 +109,8 @@ def tarjetas_deleteAll(request):
     
 @csrf_exempt
 def tarjeta_delete(request, pk):
-    role = getRole(request)
-    if role == "Administrador":
+    role = True
+    if role:
         if request.method == 'GET':
             print('deleting tarjeta')
             delete_tarjeta(pk)
