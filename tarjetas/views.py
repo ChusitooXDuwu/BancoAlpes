@@ -42,8 +42,8 @@ def crear_tarjeta(request):
 
 @csrf_exempt
 def tarjetas_view(request):
-    role = getRole(request)
-    if role == "Administrador":
+    role = True
+    if role:
         if request.method == 'GET':
             id = request.GET.get("id", None)
             if id:
